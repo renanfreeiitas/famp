@@ -70,8 +70,9 @@ async def put_curso(curso_id: int, curso: CursoSchema, db: AsyncSession = Depend
         else:
             raise HTTPException(detail='Curso nao encontrado.',
                                 status_code=status.HTTP_404_NOT_FOUND)
-            
-            
+
+
+# DELETE curso
 @router.delete('/{curso_id}', status_code=status.HTTP_204_NO_CONTENT)
 async def delete_curso(curso_id: int, db: AsyncSession = Depends(get_session)):
     async with db as session:
